@@ -1,0 +1,21 @@
+.position-r{
+    position: relative;
+}
+
+.position-a{
+    position: absolute;
+}
+
+.position-s{
+    position: sticky;
+}
+
+$direction:(left,right,top,bottom);
+
+@each $key in $direction{
+    @for $i from 0 through 100{
+        .#{$key}-#{$i}{
+            #{$key}: #{$i}px;
+        }
+    }
+}

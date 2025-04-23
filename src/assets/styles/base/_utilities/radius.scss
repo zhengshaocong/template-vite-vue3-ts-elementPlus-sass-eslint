@@ -1,0 +1,16 @@
+
+$border-radius: (4,8,12,16);
+$border-x: (l:left,r:right);
+$border-y: (t:left,r:right);
+@each $size in $border-radius {
+    .b-radius-#{$size} {
+      border-radius: #{$size}px!important;
+    }
+    @each $y,$y-val in $border-y {
+        @each $x,$x-val in $border-x {
+            .b-radius-#{$size}-#{$y}-#{$x} {
+                border-#{$y-val}-#{$x-val}-radius: #{$size}px!important;
+            }
+        } 
+    }
+}

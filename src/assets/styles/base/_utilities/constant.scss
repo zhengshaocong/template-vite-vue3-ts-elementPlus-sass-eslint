@@ -1,0 +1,115 @@
+@use '@/assets/styles/variables.scss' as *;
+
+// 常用值
+.text-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text-overflow-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+
+@for $size from 12 through 24 {
+    .fs-#{$size} {font-size: #{$size}px !important;}
+}
+
+
+
+
+
+.max-w {
+    @include max-width;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+.pointer{
+    cursor: pointer;
+}
+
+.ma-auto{
+    margin: 0 auto;
+}
+
+
+//滚动条外壳
+.scroll-sheel{
+    height: 100vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-radius: 3px;
+        &:hover {
+            background: #a8a8a8;
+        }
+    }
+}
+
+
+.module-content{
+    width: 100%;
+    padding-top: 80px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+
+// 页面banner
+.page-banner{
+    position: relative;
+    .img{
+        width: 100%;
+        height: 400px;
+        @include curtain
+    }
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 50px;
+        color: #fff;
+        z-index: 2;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 23px;
+            width: 200px;
+            height: 2px;
+            background-color: #fff;
+            right: -230px;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            top: 23px;
+            width: 200px;
+            height: 2px;
+            background-color: #fff;
+            left: -230px;
+        }
+    }
+  }

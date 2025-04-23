@@ -8,7 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    CompanyCard: typeof import('./src/components/CompanyCard.vue')['default']
+    CompanyCard: typeof import('./../components/CompanyCard.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElFooter: typeof import('element-plus/es')['ElFooter']
     ElForm: typeof import('element-plus/es')['ElForm']
@@ -18,8 +18,8 @@ declare module 'vue' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    PilotCard: typeof import('./src/components/PilotCard.vue')['default']
+    HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
+    PilotCard: typeof import('./../components/PilotCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

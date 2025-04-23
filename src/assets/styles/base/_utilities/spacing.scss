@@ -1,0 +1,22 @@
+
+// 间距 例如 m-5 {margin: 5px}  mt-5 {margin-top: 5px}  mtb-5 {margin-top: 5px ; margin-bottom: 5px }
+@use "sass:list";  // 添加模块导入
+
+@for $num from 0 through 10 {
+    @each  $i in (4,5){
+        $size: $num * $i;
+        @each  $n,$prefix in (m:margin,p:padding){
+            .#{$n}-#{$size}{ #{$prefix}: #{$size}px !important;}// 例如 m-5 {margin: 5px}
+            
+            @each $d,$t in (y:top bottom,x:left right) {
+              .#{$n}#{$d}-#{$size} {
+                  #{$prefix}-#{list.nth($t,1)}: #{$size}px !important;;
+                  #{$prefix}-#{list.nth($t,2)}: #{$size}px !important;;
+              }// 例如 mtb-5 {margin-top: 5px ; margin-bottom: 5px }
+            }
+            @each $d,$t in (t:top,b:bottom,l:left,r:right) {
+              .#{$n}#{$d}-#{$size} {#{$prefix}-#{$t}: #{$size}px !important;}// 例如 mt-5 {margin-top: 5px}
+            }
+        }
+    }
+}

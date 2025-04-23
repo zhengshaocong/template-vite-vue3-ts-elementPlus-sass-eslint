@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+$colors: (
+  p: #f78900,    // 主色调 primary
+  s: #09b83e,    // 成功色 success
+  w: #f5a623,    // 警告色 warning
+  a:#aaaaaa,
+  b:#bbbbbb,
+  c:#cccccc,
+  d:#dddddd,
+  e:#eeeeee,
+  f:#ffffff,
+);
+
+$number-colors: ();
+@for $i from 0 through 9 {
+    $hex: ($i:##{$i}+#{$i}+#{$i});
+    $number-colors: map.merge($number-colors, $hex);
+}
+
+
+// 生成颜色工具类
+@each $name, $color in map.merge($colors,$number-colors) {
+    .fc-#{$name} {
+      color: $color !important;
+    }
+    
+    .bg-#{$name} {
+      background-color: $color!important;
+    }
+    
+    .border-#{$name} {
+      border-color: $color!important;
+    }
+}

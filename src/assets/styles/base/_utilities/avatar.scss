@@ -1,0 +1,30 @@
+@use '@/assets/styles/variables.scss' as *;
+//列表头像尺寸 例如：.list-avatar-sm  .list-avatar-lg  .list-avatar-xl
+$avatar-sizes: (
+    sm: 40,
+    lg: 50,
+    xl: 60
+);
+
+// 新增头像尺寸变体
+@mixin avatar-size($size) {
+    height: #{$size}px;
+    width: #{$size}px;
+    border-radius: 50%;
+    .error {
+        font-size:#{calc($size/3)}px ;
+        height: #{$size}px;
+        width: #{$size}px;
+        line-height: #{$size}px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $minor-color;
+        color: $subject-color;
+    }
+}
+
+@each $key, $value in $avatar-sizes {
+    .list-avatar-#{$key} {
+        @include avatar-size($value);
+    }
+}

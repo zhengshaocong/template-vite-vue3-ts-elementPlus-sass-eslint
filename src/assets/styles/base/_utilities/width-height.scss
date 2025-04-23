@@ -1,0 +1,19 @@
+
+//宽高设定
+@for $i from 0 through 50 {
+    $size: 10 * $i;
+    .w-#{$size}{width: #{$size}px!important;}
+    .h-#{$size}{height: #{$size}px!important;}
+}
+
+@for $size from 1 through 100 {
+   .w-p-#{$size}{width: #{$size}+'%'!important;}
+   .h-p-#{$size}{height: #{$size}+'%'!important;}
+}
+
+
+@for $i from 10 through 50 {
+    .line-h-#{$i} {
+       line-height: #{$i}px;
+    }
+}
